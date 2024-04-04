@@ -1,71 +1,62 @@
-import './App.css';
 import { useEffect, useState } from "react";
-import Options from "../Options/Options";
-import Description from "/src/components/Description/Description";
-import Feedback from "../Feedback/Feedback";
-import Notification from "../Notification/Notification";
+import "./App.css";
+import ContactList from "../ContactList/ContactList";
+import userData from "../../user.json";
+import SearchBox from "../SearchBox/SearchBox";
+import ContactForm from "../ContactForm/ContactForm";
+import { nanoid } from "nanoid";
 
 function App() {
-  const [feedback, setFeedback] = useState(() => {
-    const savedFeedback = localStorage.getItem("feedback-quantity");
-    return savedFeedback !== null
-      ? JSON.parse(savedFeedback)
-      : {
-          good: 0,
-          neutral: 0,
-          bad: 0,
-        };
+  const [users, setUsers] = useState(() => {
+    const stringifiedUsers = localStorage.getItem("users");
+    if (!stringifiedUsers) return userData;
+
+    const parsedUsers = JSON.parse(stringifiedUsers);
+    return parsedUsers;
   });
 
+  const [filter, setFilter] = useState("");
+
+  const onChangeFilter = (event) => {
+    setFilter(event.target.value);
+  };
+
   useEffect(() => {
-    window.localStorage.setItem("feedback-quantity", JSON.stringify(feedback));
-  }, [feedback]);
+    localStorage.setItem("users", JSON.stringify(users));
+  }, [users]);
 
-  const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
-  const positiveRatio = Math.round(
-    ((feedback.good + feedback.neutral) / totalFeedback) * 100
-  );
-
-  const resetFeedback = () => {
-    setFeedback({
-      good: 0,
-      neutral: 0,
-      bad: 0,
-    });
+  const onAddUser = (formData) => {
+    const finalUser = {
+      ...formData,
+      id: nanoid(),
+    };
+    setUsers((prevUsers) => [...prevUsers, finalUser]);
   };
 
-  const hasFeedback =
-    feedback.good > 0 || feedback.neutral > 0 || feedback.bad > 0;
+  // User deleting functionality
 
-  const updateFeedback = (feedbackType) => {
-    setFeedback((prevFeedback) => ({
-      ...prevFeedback,
-      [feedbackType]: prevFeedback[feedbackType] + 1,
-    }));
+  const onUserDelete = (userId) => {
+    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
   };
+
+  const filteredUsers = users.filter((user) => {
+    const nameIncludesFilter =
+      user.name && user.name.toLowerCase().includes(filter.toLowerCase());
+    const numberIncludesFilter =
+      typeof user.number === "string" &&
+      user.number.toLowerCase().includes(filter.toLowerCase());
+    return nameIncludesFilter || numberIncludesFilter;
+  });
 
   return (
     <>
-      <Description />
-      <Options
-        updateFeedback={updateFeedback}
-        totalFeedback={totalFeedback}
-        resetFeedback={resetFeedback}
-      />
-      {hasFeedback ? (
-        <Feedback
-          good={feedback.good}
-          neutral={feedback.neutral}
-          bad={feedback.bad}
-          totalFeedback={totalFeedback}
-          positiveRatio={positiveRatio}
-        />
-      ) : (
-        <Notification />
-      )}
+      <h1>Phonebook</h1>
+      <br />
+      <ContactForm onAddUser={onAddUser} />
+      <SearchBox onChangeFilter={onChangeFilter} value={filter} />
+      <ContactList users={filteredUsers} onUserDelete={onUserDelete} />
     </>
   );
 }
 
 export default App;
-
