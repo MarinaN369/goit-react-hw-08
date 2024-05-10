@@ -1,19 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { reducerPhonebook } from "./contactsSlice";
+import { filterReducer} from "./filtersSlice";
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 // import { devToolsEnhancer } from "@redux-devtools/extension";
-// import {persistStore, persistReducer} from "redux-persist";
+
+const persistConfig = {
+  key: 'phonebook',
+  storage,
+};
+
 
 export const store = configureStore(
 
 {
-  foo: "123",  
-  reducer: reducerPhonebook,
-
+  
+  reducer: {
+  phonebook: persistReducer(persistConfig, reducerPhonebook),
+  filters: filterReducer,
+}
     });
 
-
-
-
-
-
-  export default store;
+    export const persiststor = persistStore(store);

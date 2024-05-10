@@ -11,7 +11,7 @@ import { addContact, deleteContact } from "../../redux/contactsSlice";
 import { changeFilter} from "../../redux/filtersSlice";
 
 function App() {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
 
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectNameFilter);
@@ -35,7 +35,7 @@ function App() {
     dispatch(addContact(finalUser));
   };
 
-  // User deleting functionality
+ 
 
   const onUserDelete = (userId) => {
     dispatch(deleteContact(userId));
