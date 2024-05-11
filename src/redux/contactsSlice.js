@@ -14,12 +14,12 @@ export const INITIAL_STATE = {
 const contactsSlice = createSlice({
     name: "phonebook",
     initialState: INITIAL_STATE,
-    redusers: {
+    reducers: {
         addContact (state, action) {
             state.contacts.items.push(action.payload);
            },
         deleteContact (state, action) {
-            state.contacts = state.contacts.filter((contact) => contact.id !== action.payload);
+            state.contacts.items = state.contacts.items.filter((contact) => contact.id !== action.payload);
            },   
     },
 })
