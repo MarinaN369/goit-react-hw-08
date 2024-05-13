@@ -6,8 +6,8 @@ import SearchBox from "../SearchBox/SearchBox";
 import ContactForm from "../ContactForm/ContactForm";
 import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
-// import {selectContacts, selectNameFilter } from "../../redux/selectors";
-import { addContact, deleteContact } from "../../redux/contactsSlice";
+import { fetchContacts, addContact, deleteContact } from "../../redux/contactsOps";
+// import {selectContacts, selectNameFilter, selectLoading, selectError} from "../../redux/selectors";
 import { changeFilter} from "../../redux/filtersSlice";
 
 function App() {
@@ -15,6 +15,10 @@ function App() {
 
   const contacts = useSelector((state) => state.phonebook.contacts.items);
   const filter = useSelector((state) => state.filters.name);
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const filteredUsers = contacts.filter(
     (contact) =>
