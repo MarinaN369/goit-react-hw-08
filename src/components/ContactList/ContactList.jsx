@@ -1,16 +1,27 @@
 import Contact from "../Contact/Contact";
 import css from "./ContactList.module.css";
+// import {selectContacts, selectNameFilter } from "../../redux/selectors";
+import {  useSelector } from "react-redux";
+import { nanoid } from "nanoid";
+import {selectFilteredContacts} from "../../redux/contactsSlice";
 
-const ContactList = ({ users, onUserDelete }) => {
+// const filteredUsers = (contacts, filterValue) => {
+//   return contacts.filter((contact) =>{
+//      return contact.name.toLowerCase().includes(filterValue.toLowerCase())}
+//   )
+// }
+const ContactList = () => {
+  
+  const filteredContacts = useSelector(selectFilteredContacts);
+
   return (
     <div>
       <ul className={css.contactList}>
-        {Array.isArray(users) &&
-          users.map((user) => {
-            return (
-              <Contact key={user.id} user={user} onUserDelete={onUserDelete} />
-            );
-          })}
+      {filteredContacts.map((contact) => 
+                    <li  key={ nanoid()}>
+                    <Contact name={contact.name} number={contact.number} id={contact.id}/>
+                </li>
+                )}
       </ul>
     </div>
   );
