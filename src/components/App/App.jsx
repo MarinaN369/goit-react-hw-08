@@ -7,6 +7,8 @@ import ContactList from "../ContactList/ContactList";
 // import userData from "../../user.json";
 import SearchBox from "../SearchBox/SearchBox";
 import ContactForm from "../ContactForm/ContactForm";
+import Loader from "../Loader/Loader";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 
 
