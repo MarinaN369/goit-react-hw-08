@@ -1,0 +1,12 @@
+.AuthNavContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.AuthNavLink{
+    color: black;
+}
+.AuthNavLink:hover{
+     transform: scale(1.2);
+        color: rgb(229, 94, 22);
+}

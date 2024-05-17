@@ -1,0 +1,13 @@
+.NavLinkContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.link{
+    color: black;
+}
+.link:hover{
+    color: rgb(229, 94, 22);
+     transform: scale(1.2); 
+   
+}

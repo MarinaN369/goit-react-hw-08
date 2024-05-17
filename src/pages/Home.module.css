@@ -1,0 +1,55 @@
+.phonebook-container{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.phonebook {}
+.hello-phonebook {
+    text-align: center;
+    font-size: 2rem;
+
+}
+.phone-manage {
+    font-size: 1,5rem;
+    text-align: center;
+    text-align: ;
+}
+
+.phone-order {
+    font-size: 1,2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.navlink-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.login {
+    text-decoration: none;
+    color: inherit;
+    padding: 10px 20px;
+    background-color: rgb(229, 94, 22);
+    border: 1px solid black;
+    border-radius: 20px;
+    font-size: 1,2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 0px 8px 4px rgb(88, 80, 87);    
+}
+
+.register {
+    text-decoration: none;
+    color: inherit;
+    padding: 10px 20px;
+    background-color: rgb(229, 94, 22);
+    border: 1px solid black;
+    border-radius: 20px;
+    font-size: 1,2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 0px 8px 4px rgb(88, 80, 87);    
+}
+
