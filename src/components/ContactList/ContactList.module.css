@@ -1,8 +1,13 @@
 .contactList {
   list-style: none;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    gap: 10px;
-    margin: 0;
     padding: 0;
+    gap: 16px;
+
+    margin-top: 20px;
+    
   }
+
+  

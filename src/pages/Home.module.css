@@ -1,28 +1,28 @@
-.phonebook-container{
+.phonebookContainer{
     max-width: 960px;
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
 }
 
-.phonebook {}
-.hello-phonebook {
+
+.helloPhonebook {
     text-align: center;
     font-size: 2rem;
 
 }
-.phone-manage {
+.phoneManage {
     font-size: 1,5rem;
     text-align: center;
-    text-align: ;
+    
 }
 
-.phone-order {
+.phoneOrder {
     font-size: 1,2rem;
     text-align: center;
     margin-bottom: 2rem;
 }
-.navlink-container {
+.navlinkContainer {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -31,7 +31,7 @@
     text-decoration: none;
     color: inherit;
     padding: 10px 20px;
-    background-color: rgb(229, 94, 22);
+    background-color: rgb(26, 81, 133);
     border: 1px solid black;
     border-radius: 20px;
     font-size: 1,2rem;
@@ -44,7 +44,7 @@
     text-decoration: none;
     color: inherit;
     padding: 10px 20px;
-    background-color: rgb(229, 94, 22);
+    background-color: rgb(26, 81, 133);
     border: 1px solid black;
     border-radius: 20px;
     font-size: 1,2rem;

@@ -27,15 +27,17 @@ left: 35%;
     border: 2px solid black;
 }
 .submitButton {
+    
     font-size: 14px;
     font-weight: 500;
-    background-color: rgb(228, 135, 85);
+    background-color: rgb(85, 130, 228);
     border: 1px solid black;
+    border-radius: 5px;
     margin: 10px 0 0 0;
 }
 
 .submitButton:hover {
-    background-color: rgb(229, 94, 22);
+    background-color: rgb(30, 73, 165);
     border: 2px solid black;
     box-shadow: 0px 0px 8px 4px rgb(88, 80, 87);
 }

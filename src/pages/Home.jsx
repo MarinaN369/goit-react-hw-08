@@ -26,21 +26,21 @@ const Home = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <div className={css.phonebook-container}>
+    <div className={css.phonebookContainer}>
       <h1 className={css.phonebook}> Phonebook </h1>
-      <h2 className={css.hello-phonebook}>
+      <h2 className={css.helloPhonebook}>
         Welcome to Phonebook!
       </h2>
       {isLoggedIn ? (
-        <p className={css.phone-manage}>
+        <p className={css.phoneManage}>
           Manage your contacts{" "}
         </p>
       ) : (
         <>
-          <p className={css.phone-order}>
+          <p className={css.phoneOrder}>
             In order to use Phonebook, please log in or register.
           </p>
-          <div className={css.navlink-container}>
+          <div className={css.navlinkContainer}>
             <NavLink className={css.login}
               to="/login"
                 onMouseEnter={handleMouseEnterLog}

@@ -1,3 +1,10 @@
+import css from './App.module.css'
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, lazy, Suspense } from "react";
+import { selectLoading, selectError } from "../redux/contacts/selectors";
+
+import { fetchContacts } from "../redux/contacts/operations";
+import { refreshUser } from '../redux/auth/operations';
 import ErrorMessage from "./ErrorMessage/ErrorMessage";
 import Loader from "./Loader/Loader";
 import { Route, Routes, Navigate } from 'react-router-dom';
