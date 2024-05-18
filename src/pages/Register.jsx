@@ -4,7 +4,7 @@ import RegisterForm from "../components/RegisterForm/RegisterForm";
 const Register = () => {
   return (
     <>
-      <h2>Registration</h2>
+      <h2 style={{textAlign: "center", marginBottom: "40px"}}>Registration</h2>
       <RegisterForm />
     </>
   );

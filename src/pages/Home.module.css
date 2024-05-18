@@ -5,7 +5,10 @@
     position: relative;
 }
 
-
+.phonebook {
+    text-align: center;
+    color: rgb(43, 86, 165);
+}
 .helloPhonebook {
     text-align: center;
     font-size: 2rem;
